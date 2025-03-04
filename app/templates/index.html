@@ -1,0 +1,20 @@
+{% extends './layout.html'%}
+
+{% block title %} {{data.titulo}} {% endblock %}
+
+{% block body %}
+
+<h1>{{ data.bienvenida }}</h1> 
+<h2>{{ data.follow }}</h2>
+{% if data.cantidadCanales %}
+<ul>
+    {% for c in data.canales %}
+    <li> {{c}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<h3>...</h3>
+<h3>No existen canales :c</h3>
+{% endif %}
+
+{% endblock %}
