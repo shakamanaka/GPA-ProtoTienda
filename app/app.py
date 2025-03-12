@@ -2,6 +2,15 @@ from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
+@app.before_request
+def before_request():
+    print("Antes del 'request'...")
+
+@app.after_request
+def after_request(response):
+    print("Después de la 'request'")
+    return response
+
 @app.route('/')
 def index():
     ## return "___" ## retornar plantilla HTML -> Las respuesta que queremos entregar
